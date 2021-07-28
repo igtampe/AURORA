@@ -165,9 +165,9 @@ namespace Igtampe.Aurora {
             DrawHorizontalLine(ConsoleColor.White, 14);
 
             Draw.CenterText("The last outage was from", 16, ConsoleColor.Black, ConsoleColor.White);
-            Draw.CenterText(O.LastOutage.Start.ToString(DATE_FORMAT), 18,ConsoleColor.Black, ConsoleColor.Red);
+            Draw.CenterText(O.LastOutage.Start.ToString(), 18,ConsoleColor.Black, ConsoleColor.Red);
             Draw.CenterText("to", 19, ConsoleColor.Black, ConsoleColor.White);
-            Draw.CenterText(O.LastOutage.End.ToString(DATE_FORMAT), 20, ConsoleColor.Black, ConsoleColor.Green);
+            Draw.CenterText(O.LastOutage.End.ToString(), 20, ConsoleColor.Black, ConsoleColor.Green);
 
             /**00000000001111111111222222222233333333334444444444555555555566666666667777777777
              * 01234567890123456789012345678901234567890123456789012345678901234567890123456789
@@ -239,18 +239,18 @@ namespace Igtampe.Aurora {
 
 
             while (true) {
-                switch (Console.ReadKey().Key) {
+                switch (Console.ReadKey(true).Key) {
                     case ConsoleKey.UpArrow:
                         TopIndex = Math.Max(TopIndex - 1, 0);
                         break;
                     case ConsoleKey.DownArrow:
-                        TopIndex = Math.Min(TopIndex + 1, O.Count - 19);
+                        TopIndex = Math.Max(Math.Min(TopIndex + 1, O.Count - 19),0);
                         break;
                     case ConsoleKey.PageUp:
                         TopIndex = Math.Max(TopIndex - 19, 0);
                         break;
                     case ConsoleKey.PageDown:
-                        TopIndex = Math.Min(TopIndex + 19, O.Count - 19);
+                        TopIndex = Math.Max(Math.Min(TopIndex + 19, O.Count - 19),0);
                         break;
                     case ConsoleKey.Escape:
                     case ConsoleKey.D:
