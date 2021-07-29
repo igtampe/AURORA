@@ -1,1 +1,1 @@
-"C:\Users\Igtam\source\repos\Aurora\Aurora\bin\Debug\net5.0\Default.aurlog"
+"..\Aurora\bin\Debug\net5.0\Default.aurlog"
