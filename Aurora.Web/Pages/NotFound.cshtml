@@ -1,0 +1,43 @@
+﻿@page
+@{ ViewData["Title"] = "Aurora WEB"; }
+
+<style>
+    hr {
+        height: 2px;
+        background-color: white;
+        border: none;
+    }
+</style>
+
+<div>
+    <table class="text-center" style="background-color: #1a1a1a; margin:auto;">
+        <tr>
+            <td style="padding:20px">
+                <table style="background-color: #262626; margin-left: auto; margin-right: auto">
+                    <tr>
+                        <td rowspan="3" style="padding-left: 10px; padding-right: 10px"><a href="http://igtnet-w.ddns.net:100/"><img src="http://igtnet-w.ddns.net:100/artemis.png" alt="Artemis Logo" style="height:85px; width:85px" /></a></td>
+                        <td style="text-align: left; color: white; padding-left: 10px; padding-right: 10px"> <b>AURORA: Artemis Uptime Relaunch and Outage Registry Administrator</b></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left; color: white; padding-left: 10px; padding-right: 10px">0 outage(s) in the last (unknown) days</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left; color: white; padding-left: 10px; padding-right: 10px">0 outage(s) in the last 24 hours</td>
+                    </tr>
+                </table>
+
+                <br />
+                <hr style="color:white" />
+                <br />
+
+                <div style="color:white">
+                    <b style="color:red">The configured AURLOG Location could not be found</b><br />
+                    Contact your administrator to update the Path.txt file
+                </div>
+                <br />
+
+            </td>
+        </tr>
+    </table>
+
+</div>
