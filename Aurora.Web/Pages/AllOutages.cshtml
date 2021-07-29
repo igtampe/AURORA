@@ -18,7 +18,7 @@
             <td style="text-align: left; color: white; padding-left: 10px; padding-right: 10px"> <b>AURORA: Artemis Uptime Relaunch and Outage Registry Administrator</b></td>
         </tr>
         <tr>
-            <td style="text-align: left; color: white; padding-left: 10px; padding-right: 10px">@Model.Collection.Count outage(s) in the last @Convert.ToInt32(Model.Collection.OldestOutageAgo.TotalDays)</td>
+            <td style="text-align: left; color: white; padding-left: 10px; padding-right: 10px">@Model.Collection.Count outage(s) in the last @Convert.ToInt32(Model.Collection.OldestOutageAgo.TotalDays) day(s)</td>
         </tr>
         <tr>
             <td style="text-align: left; color: white; padding-left: 10px; padding-right: 10px">@Model.Collection.Count24 outage(s) in the last 24 hours</td>
@@ -41,7 +41,7 @@
             <th style="color:white; padding-left: 5px; padding-right: 5px">Duration</th>
             <!-- <th style="color:white; padding-left: 5px; padding-right: 5px">Descriptions</th>-->
         </tr>
-        @for (int i = Model.Collection.Count - 1; i > 0; i--) {
+        @for (int i = Model.Collection.Count - 1; i > -1; i--) {
             <tr>
                 <td style="color: white; padding-left: 10px; padding-right: 10px">@i</td>
                 <td style="color: white; padding-left: 10px; padding-right: 10px">@Model.Collection.GetOutageAt(i).Start.ToString(Aurora.Program.DATE_FORMAT)</td>
