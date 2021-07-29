@@ -12,7 +12,7 @@ namespace Igtampe.Aurora {
         //-[Constant]-------------------------------------------------------------------------------------------------------------------------------------------------
 
         /// <summary>Date Format of all dates</summary>
-        private const string DATE_FORMAT = "MM-dd-yyyy HH:mm:ss";
+        public const string DATE_FORMAT = "MM-dd-yyyy HH:mm:ss";
 
         /// <summary>Default pulse file</summary>
         private const string DEFAULT_PULSE = "Pulse.aurlog";
@@ -318,7 +318,7 @@ namespace Igtampe.Aurora {
         /// <summary>Formats a timespan</summary>
         /// <param name="T"></param>
         /// <returns></returns>
-        private static string FormatTimeSpan(TimeSpan T) {
+        public static string FormatTimeSpan(TimeSpan T) {
             string Days = T.Days < 10 ? "0" + T.Days : T.Days + "";
             string Hours = T.Hours < 10 ? "0" + T.Hours : T.Hours + "";
             string Mins = T.Minutes < 10 ? "0" + T.Minutes : T.Minutes + "";

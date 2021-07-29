@@ -34,6 +34,11 @@ namespace Igtampe.Aurora {
 
         public object SyncRoot => ((ICollection)InternalList).SyncRoot;
 
+        /// <summary>Finds the index of an outage</summary>
+        /// <param name="O"></param>
+        /// <returns></returns>
+        public int IndexOf(Outage O) => InternalList.IndexOfValue(O);
+
         /// <summary>internal list to store all outages</summary>
         private readonly SortedList<DateTime, Outage> InternalList = new();
 
