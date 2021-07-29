@@ -1,0 +1,54 @@
+﻿@page
+@model IndexModel
+@{ ViewData["Title"] = "Aurora WEB"; }
+
+<style>
+    hr {
+        height: 2px;
+        background-color: white;
+        border: none;
+    }
+</style>
+
+<div class="text-center" style="margin-top:auto; margin-bottom:auto">
+
+    <table style="background-color: #262626; margin-left: auto; margin-right: auto">
+        <tr>
+            <td rowspan="3" style="padding-left: 10px; padding-right: 10px"><a href="http://igtnet-w.ddns.net:100/"><a href="http://igtnet-w.ddns.net:100/"><img src="http://igtnet-w.ddns.net:100/artemis.png" alt="Artemis Logo" style="height:85px; width:85px" /></a></td>
+            <td style="text-align: left; color: white; padding-left: 10px; padding-right: 10px"> <b>AURORA: Artemis Uptime Relaunch and Outage Registry Administrator</b></td>
+        </tr>
+        <tr>
+            <td style="text-align: left; color: white; padding-left: 10px; padding-right: 10px">@Model.Collection.Count outage(s) in the last @Convert.ToInt32(Model.Collection.OldestOutageAgo.TotalDays)</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; color: white; padding-left: 10px; padding-right: 10px">@Model.Collection.Count24 outage(s) in the last 24 hours</td>
+        </tr>
+    </table>
+
+    <br />
+    <div style="color:white"><a href="..">Click here to go back</a></div>
+
+
+    <br />
+    <hr />
+    <br />
+    <h5 style="color:white;">All Outages:</h5><br />
+    <table style="margin-left:auto; margin-right:auto">
+        <tr>
+            <th style="color:white; padding-left: 5px; padding-right: 5px">####</th>
+            <th style="color:white; padding-left: 5px; padding-right: 5px">Start</th>
+            <th style="color:white; padding-left: 5px; padding-right: 5px">End</th>
+            <th style="color:white; padding-left: 5px; padding-right: 5px">Duration</th>
+            <!-- <th style="color:white; padding-left: 5px; padding-right: 5px">Descriptions</th>-->
+        </tr>
+        @for (int i = Model.Collection.Count - 1; i > 0; i--) {
+            <tr>
+                <td style="color: white; padding-left: 10px; padding-right: 10px">@i</td>
+                <td style="color: white; padding-left: 10px; padding-right: 10px">@Model.Collection.GetOutageAt(i).Start.ToString(Aurora.Program.DATE_FORMAT)</td>
+                <td style="color: white; padding-left: 10px; padding-right: 10px">@Model.Collection.GetOutageAt(i).End.ToString(Aurora.Program.DATE_FORMAT)</td>
+                <td style="color: white; padding-left: 10px; padding-right: 10px">@Aurora.Program.FormatTimeSpan(Model.Collection.GetOutageAt(i).Duration)</td>
+                <!--<td style="color: white; padding-left: 10px; padding-right: 10px">@Model.Collection.GetOutageAt(i).Description</td>-->
+            </tr>
+            }
+        </table>
+    </div>
