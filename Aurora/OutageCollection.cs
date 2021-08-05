@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 
 namespace Igtampe.Aurora {
-    public class OutageCollection: IEnumerable, ICollection {
+    public class OutageCollection: ICollection {
 
         //-[Variables]-------------------------------------------------------------------------------------------------------------------------------------------------
 

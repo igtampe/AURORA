@@ -3,7 +3,7 @@
 namespace Igtampe.Aurora {
 
     /// <summary>Holds one Aura Outage</summary>
-    public class Outage:IComparable {
+    public class Outage: IComparable {
 
         //-[Variables]-------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -37,7 +37,7 @@ namespace Igtampe.Aurora {
         /// <summary>Checks if this outage colides with another outage</summary>
         /// <param name="O">Another Outage</param>
         /// <returns>True if the start or end of the other outage is between this one's start and end</returns>
-        public bool Colides(Outage O) {return (Start < O.Start && O.Start < End) || (Start < O.End && O.End < End);}
+        public bool Colides(Outage O) { return (Start < O.Start && O.Start < End) || (Start < O.End && O.End < End); }
 
         //-[Overrides]-------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -49,13 +49,12 @@ namespace Igtampe.Aurora {
         /// <param name="obj"></param>
         /// <returns>True if and only if the object is an <see cref="Outage"/> and <see cref="Start"/>, <see cref="End"/>, and <see cref="Description"/> match</returns>
         public override bool Equals(object obj) {
-            if (obj is Outage O) { return O.Start.Equals(Start) && O.End.Equals(End) && O.Description.Equals(Description); } 
-            else return false;
+            if (obj is Outage O) { return O.Start.Equals(Start) && O.End.Equals(End) && O.Description.Equals(Description); } else return false;
         }
 
         /// <summary>Delegates hashcode to Start</summary>
         /// <returns><see cref="Start"/>'s hashcode (<see cref="DateTime.GetHashCode"/>)</returns>
-        public override int GetHashCode() {return Start.GetHashCode();}
+        public override int GetHashCode() { return Start.GetHashCode(); }
 
         //-[Static Functions]-------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -67,10 +66,28 @@ namespace Igtampe.Aurora {
             return new Outage() {
                 Start = DateTime.Parse(OSplit[0]),
                 End = DateTime.Parse(OSplit[1]),
-                Description = OSplit.Length > 2 ? OSplit[2] : "" 
+                Description = OSplit.Length > 2 ? OSplit[2] : ""
             };
 
         }
 
+        //-[Operators]-------------------------------------------------------------------------------------------------------------------------------------------------
+
+        public static bool operator ==(Outage left, Outage right) {
+            if (left is null) { return right is null; }
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(Outage left, Outage right) { return !(left == right); }
+
+        public static bool operator <(Outage left, Outage right) { return left is null ? right is not null : left.CompareTo(right) < 0; }
+
+        public static bool operator <=(Outage left, Outage right) {
+            return left is null || left.CompareTo(right) <= 0;
+        }
+
+        public static bool operator >(Outage left, Outage right) { return left is not null && left.CompareTo(right) > 0; }
+
+        public static bool operator >=(Outage left, Outage right) { return left is null ? right is null : left.CompareTo(right) >= 0; }
     }
 }

@@ -7,7 +7,7 @@ using Igtampe.Aurora.Graphics;
 
 
 namespace Igtampe.Aurora {
-    public class Program {
+    public static class Program {
 
         //-[Constant]-------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -125,9 +125,11 @@ namespace Igtampe.Aurora {
             Home(L);
         }
 
-        /// <summary>Home screen of this cosa which shows todo</summary>
+
+        /// <summary>Home screen of this cosa which shows todo (everything)</summary>
         /// <param name="O"></param>
         private static void Home(OutageCollection O, bool Redraw = false) {
+
             Console.Clear();
             DrawIGTNETHeader();
             BasicGraphic SmallArtemis = BasicGraphic.LoadFromResource(Properties.Resources.ArtemisLogoSmall);

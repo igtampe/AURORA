@@ -48,7 +48,6 @@ namespace Igtampe.Aurora.Graphics {
         /// <summary>Draws this progress bar</summary>
         public void DrawBar() {
             Draw.Sprite(SpecialChars.VERTICAL+"", BG, BarColor, LeftPos, TopPos);
-            //Draw.Row(BG, Length, LeftPos+1, TopPos);
             Draw.Row(BarColor, Convert.ToInt32(Length * Percent), LeftPos+1, TopPos);
             if ((Length * Percent) % 1 > .5) {Draw.Sprite(SpecialChars.LEFT_HALF_BLOCK + "", BG, BarColor);}
             Draw.Sprite(SpecialChars.VERTICAL + "", BG, BarColor, LeftPos + Length + 1, TopPos);
